@@ -1,0 +1,226 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+}
+
+body{
+  background: #0b1520;
+}
+
+.formContainer{
+  display: flex;
+}
+
+.formContainer form{
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 0.4rem;
+  background: #1a2633;
+}
+
+.inputWrapper{
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+  gap: 0.4rem;
+  color: #ededed;
+}
+
+.inputWrapper input{
+  border: 1px solid #777;
+  border-radius: 0.2rem;
+  padding: 0.4rem;
+  font-size: 0.9rem;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+  color: #ededed;
+  background: #09141e;
+}
+
+.inputWrapper input:focus{
+  border: 1px solid #9333ea;
+}
+
+.inputWrapperContainer{
+  display: flex;
+  gap: 1rem;
+}
+
+.inputWrapperContainer .inputWrapper{
+  max-width: 7rem;
+}
+
+input[name=ccCvv]{
+  width: 4rem;
+}
+
+.cvvInfoContainer{
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  position: relative;
+}
+
+.cvvInfoContainer img:focus + .cvvInfoModal,
+.cvvInfoContainer img:hover + .cvvInfoModal{
+  display: block;
+}
+
+.cvvInfoModal{
+  display: none;
+  position: absolute;
+  width: 10rem;
+  top: -2rem;
+  left: 2rem;
+  transform: translateX(-100%);
+  padding: 0.4rem;
+  border-radius: 0.4rem;
+  z-index: 1001;
+  color: #222;
+  background: #ededed;
+}
+
+.warning{
+  font-size: small;
+  color: #f37777;
+}
+
+.warningModalText{
+  font-weight: 600;
+}
+
+.security{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  color: #fff;
+}
+
+.security img{
+  width: 0.8rem;
+  height: 0.8rem;
+}
+
+.buttonSubmit,
+.buttonModal{
+  border: none;
+  padding: 0.5rem;
+  width: 100%;
+  border-radius: 0.2rem;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: .0rem .4rem 1.6rem rgba(0, 0, 0, 0.1);
+  color: #fff;
+  background: #9333ea;
+}
+
+.buttonSubmit:hover,
+.buttonModal:hover{
+  background: #7529bd;
+}
+
+.buttonModal{
+  margin-top: 1rem;
+}
+
+.creditCard{
+  width: 21rem;
+  height: 13rem;
+  perspective: 60rem;
+}
+
+.creditCard > div{
+  width: inherit;
+  height: inherit;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  color: #dfdfdf;
+  font-size: 1.2rem;
+  font-weight: 600;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+.creditCard .front{
+  background: url('./assets//CreditCard.svg') no-repeat;
+  transform: rotateY(0);
+}
+
+
+.creditCard .back{
+  background: url('./assets//CreditCardBack.svg') no-repeat;
+  transform: rotateY(180deg);
+}
+
+.creditCard .front.cvvActive{
+  transform: rotateY(180deg);
+}
+
+.creditCard .back.cvvActive{
+  transform: rotateY(0);
+}
+
+.ccNumber,
+.ccHolder,
+.ccValidity,
+.ccCvv{
+  position: absolute;
+}
+
+.creditCard .front .ccNumber{
+  width: 77%;
+  left: 2.1rem;
+  top: 6rem;
+  letter-spacing: 0.26rem;
+}
+
+.creditCard .front .ccHolder{
+  left: 2.1rem;
+  top: 9rem;
+  font-size: 1rem;
+}
+
+.creditCard .front .ccValidity{
+  left: 15.2rem;
+  top: 9rem;
+  font-size: 1rem;
+}
+
+.creditCard .back .ccCvv{
+  left: 13rem;
+  top: 7.6rem;
+  font-size: 1rem;
+  color: #444;
+}
+
+@media screen and (max-width: 572px) {
+  .formContainer{
+    flex-direction: column;
+  }
+  .formContainer form{
+    order: 1;
+  }
+  
+}

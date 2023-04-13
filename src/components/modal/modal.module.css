@@ -1,0 +1,28 @@
+.modalContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  opacity: 0;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transition: 0.2s ease;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.modalContainer.visible{
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal{
+  padding: 0.8rem;
+  border-radius: 0.4rem;
+  color: #222;
+  background: #fff;
+}
